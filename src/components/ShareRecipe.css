@@ -1,5 +1,5 @@
-/* ShareRecipes.css */
-.share-recipes-container {
+
+  .share-recipes-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,6 +18,7 @@
     width: 100%;
     height: 500px;
     border-radius: 4px;
+    object-fit: cover;
   }
   
   .share-content {
@@ -34,7 +35,7 @@
   }
   
   .highlight {
-    color: #d87a65; 
+    color: #d87a65;
   }
   
   .share-content p {
@@ -59,3 +60,100 @@
     background-color: #c56a55;
   }
   
+
+  @media screen and (max-width: 992px) {
+    .share-recipes-container {
+      gap: 30px;
+      margin: 50px auto;
+    }
+    
+    .share-image {
+      max-width: 350px;
+    }
+    
+    .share-image img {
+      height: 450px;
+    }
+    
+    .share-content h2 {
+      font-size: 32px;
+    }
+    
+    .share-content p {
+      font-size: 15px;
+    }
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .share-recipes-container {
+      flex-direction: column;
+      gap: 30px;
+      margin: 40px auto;
+    }
+    
+    .share-image, .share-content {
+      max-width: 100%;
+    }
+    
+    .share-image img {
+      height: 400px;
+      max-width: 100%;
+    }
+    
+    .share-content {
+      text-align: center;
+    }
+    
+    .share-content h2 {
+      font-size: 30px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .share-recipes-container {
+      padding: 0 15px;
+      margin: 30px auto;
+      gap: 20px;
+    }
+    
+    .share-image img {
+      height: 300px;
+    }
+    
+    .share-content h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+    
+    .share-content p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    
+    .create-recipe-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+  
+  
+  @media screen and (max-width: 360px) {
+    .share-image img {
+      height: 250px;
+    }
+    
+    .share-content h2 {
+      font-size: 24px;
+    }
+    
+    .share-content p {
+      font-size: 13px;
+    }
+    
+    .create-recipe-btn {
+      padding: 8px 16px;
+    }
+  }

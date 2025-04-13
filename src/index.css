@@ -1,12 +1,17 @@
+
+
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 .main-content {
   padding-top: 60px;
   width: 100%;
 }
+
 .header {
   background-color: #000000;
   height: 60px;
@@ -21,7 +26,7 @@ body {
   left: 0;
   right: 0;
   z-index: 1000;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 .title {
@@ -36,11 +41,10 @@ body {
 }
 
 .title img {
-  width: 50px; 
+  width: 50px;
   height: auto;
 }
 
-/* Center the nav links */
 .nav-links {
   display: flex;
   justify-content: center;
@@ -59,7 +63,6 @@ body {
   text-decoration: underline;
 }
 
-/* Auth buttons on the right */
 .auth-buttons {
   display: flex;
   justify-content: flex-end;
@@ -92,20 +95,20 @@ body {
 .login-btn:hover, .signup-btn:hover {
   opacity: 0.8;
 }
+
 .dis {
   width: 188px;
   height: 50px;
   background-color: white;
-
-  color:#000000;
+  color: #000000;
 }
+
 .footer {
   display: flex;
   width: 100%;
   padding: 40px 20px;
   border-bottom: 1px solid #e0e0e0;
   background-color: #e0e0e0;
-  
 }
 
 .logobox {
@@ -131,9 +134,7 @@ body {
   width: 75%;
 }
 
-.linkcolumn1,
-.linkcolumn2,
-.linkcolumn3 {
+.linkcolumn1, .linkcolumn2, .linkcolumn3 {
   display: flex;
   flex-direction: column;
   width: 30%;
@@ -154,4 +155,146 @@ body {
 
 .linkbox a:hover {
   color: #000;
+}
+
+/* Mobile Menu Toggle Button (Hamburger) */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+}
+
+
+@media screen and (max-width: 768px) {
+ 
+  .header {
+    padding: 0 15px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .title img {
+    width: 40px;
+  }
+  
+  /* Hide desktop navigation */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #000000;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    margin: 10px 20px;
+    font-size: 16px;
+  }
+  
+  /* Auth buttons modifications */
+  .auth-buttons {
+    gap: 5px;
+  }
+  
+  .login-btn, .signup-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  
+  .signup-btn {
+    width: auto;
+  }
+  
+  /* Show mobile menu toggle */
+  .mobile-menu-toggle {
+    display: flex;
+    order: -1;
+  }
+  
+  /* Footer modifications */
+  .footer {
+    flex-direction: column;
+    padding: 30px 15px;
+  }
+  
+  .logobox {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .logobox img {
+    margin: 0 auto 15px;
+  }
+  
+  .linkbox {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .linkcolumn1, .linkcolumn2, .linkcolumn3 {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+/* Small mobile screens */
+@media screen and (max-width: 480px) {
+  .header {
+    height: 50px;
+  }
+  
+  .main-content {
+    padding-top: 50px;
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+  
+  .title img {
+    width: 30px;
+  }
+  
+  .auth-buttons {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .login-btn, .signup-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+  
+  .nav-links {
+    top: 50px;
+  }
+  
+  .dis {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
 }
