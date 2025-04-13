@@ -1,13 +1,12 @@
 import React from 'react'
-
+import ClaudeRecipe from './ClaudeRecipes';
+import Ingredientlist from './Ingredientlist';
+import {getRecipeFromOpenRouter} from "./Aiss";
 
 function Main() {
     const [ingredients, setIngredients] = React.useState([]);
-    const [recipeShown, setRecipeShown] = React.useState(false)
+    const [recipe, setRecipe] = React.useState("")
     
-    const ingredientlist = ingredients.map((ing, index) => (
-        <li key={index}>{ing}</li>
-    ))
     
     function handleSubmit(event) {
         event.preventDefault();
@@ -17,40 +16,17 @@ function Main() {
         event.currentTarget.reset(); 
     }
     
-    function toggleRecipeShown() {
-        setRecipeShown(prevShown => !prevShown)
+    async function getRecipe() {
+        const recipeidea= await getRecipeFromOpenRouter(ingredients);
+        console.log(recipeidea);
+        setRecipe(recipeidea);
     }
     
-    function displaybox() {
-        if (ingredients.length >= 4) {
-            return (
-                <div className="get-recipe-container">
-                    <div>
-                        <h3>Ready for a recipe?</h3>
-                        <p>Generate a recipe from your list of ingredients.</p>
-                    </div>
-                    <button onClick={toggleRecipeShown}>Get a recipe</button>
-                </div>
-            )
-        }
-    }
-    
-    function addingred() {
-        if (ingredients.length) {
-            return (
-                <section className="ingredientsOnHand">
-                    <h2>Ingredients on hand:</h2>
-                    <ul className="ingredients-list" aria-live="polite">
-                        {ingredientlist}
-                    </ul>
-                    {displaybox()}
-                </section>
-            )
-        }
-    }
+
 
     return (
         <main className="main">
+            <h1>Enter the Ingredients you have: </h1>
             <form onSubmit={handleSubmit}>
                 <label className="addingredient">
                     <input type="text" placeholder="eq. oregano" 
@@ -58,7 +34,8 @@ function Main() {
                     <button>Add Ingredient</button>
                 </label>
             </form>
-            {addingred()}
+            {ingredients.length>0 && <Ingredientlist ingredients={ingredients} getRecipe={getRecipe}/>}
+             {recipe && <ClaudeRecipe recipe={recipe}/> }
         </main>
     )
 }
